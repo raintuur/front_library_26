@@ -1,5 +1,5 @@
 <template>
- <div>Some message</div>
+ <div>Some message and message</div>
 </template>
 
 <script>

@@ -12,8 +12,8 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/library',
-    name: 'Raamatukogud',
+    path: '/by-city',
+    name: 'libraryRoute',
     component: LibraryView
   },
   {

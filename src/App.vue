@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Kodu</router-link> |
+      <router-link to="/by-city">Raamatukogu</router-link> |
+      <router-link to="/about">Log-in</router-link>
     </nav>
     <router-view/>
   </div>

@@ -2,13 +2,13 @@
 
   <table class="justify-content-start col-lg-4">
     <thead>
-    <button type="button" class="btn btn-success col-lg-3">Kõik</button>
+    <button type="button" class="btn btn-primary col-lg-3">Kõik</button>
     </thead>
 
     <tbody>
     <tr v-for="libraryLocation in libraryLocations">
       <td>
-        <button type="button" class="btn btn-success col-lg-3">
+        <button type="button" class="btn btn-primary col-lg-3">
           {{ libraryLocation.cityName }}
         </button>
       </td>

@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "Raamatukogu"
+  name: "Library"
 }
 </script>
 

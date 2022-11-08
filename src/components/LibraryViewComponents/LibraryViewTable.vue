@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     <tr v-for="libraryLocation in libraryLocations" :key="libraryLocation.libraryId">
-      <td>{{libraryLocation.cityName}}</td>
+      <td>{{ libraryLocation.cityName }}</td>
       <td>{{ libraryLocation.libraryName }}</td>
       <td>
         <button type="button" class="btn btn-sm btn-outline-success">Vaata</button>

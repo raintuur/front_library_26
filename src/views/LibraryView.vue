@@ -1,16 +1,15 @@
 <template>
   <div>
     <div class="container">
-      <div class="row justify-content-start">
-        <div class="col col-lg-3">
+    <div class="row">
+      <div class="col-lg-3">
 
           <LibraryCityButton/>
 
-        </div>
       </div>
     </div>
+    </div>
   </div>
-
 
 </template>
 <script>
@@ -22,7 +21,7 @@ export default {
   components: {LibraryCityButton},
   data: function () {
     return {
-    cities: [
+      cities: [
         {
           cityName: '',
           CityId: 0

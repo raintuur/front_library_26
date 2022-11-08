@@ -1,24 +1,13 @@
 <template>
-  <div>
-    <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-      Kõik
-    </button>
-    <div class="row m-1">
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+<!--      <button class="btn btn-success" type="button">Kõik</button>-->
+      <button type="button" class="btn btn-outline-dark">Kõik</button>
+<!--      <button v-for="city in cities" :key="city.cityId" :value="city.cityId" class="btn btn-danger" type="button">-->
+<!--        {{ city.cityName}}</button>-->
+      <button v-for="city in cities" :key="city.cityId" :value="city.cityId" type="button" class="btn btn-outline-dark">
+        {{ city.cityName }}</button>
     </div>
-    <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-      Tallinn
-    </button>
-    <div class="row m-1">
-    </div>
-    <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-      Tartu
-    </button>
-    <div class="row m-1">
-    </div>
-    <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-      Pärnu
-    </button>
-  </div>
 
 </template>
 <script>
@@ -34,25 +23,29 @@ export default {
       ]
     }
   },
+
   methods: {
     getLibrariesCityButtonInfo: function () {
       this.$http.get('/library/city-list')
-          .then(result => {
-            this.cities = result.data
+          .then(response => {
+           // alert('Kõik ok!')
+            this.cities =response.data
+            console.log = response.data
           })
           .catch(error => {
-            alert ('VIGA!')
-            console.log('Vastuseks on viga!')
-          }),
-      },
-
-    clickSelectCityEvent: function () {
-      this.$emit('clickSelectCityEvent' , this.SelectedCityId)
-    }
+            //alert('VIGA!')
+           //console.log(error)
+          });
+    },
+    //
+    // clickSelectCityEvent: function () {
+    //   this.$emit('clickSelectCityEvent', this.selectedCityID)
+    // }
   },
   beforeMount() {
     this.getLibrariesCityButtonInfo()
   }
-
 }
+
 </script>
+

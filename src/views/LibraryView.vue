@@ -7,7 +7,7 @@
           @libraryAllCityClickEvent = "getAllLibraryLocationsById"/>
         </div>
         <div class="col col-lg-9">
-          <LibraryLocationsTable :library-locations="libraryLocations" @libraryCityClickEvent="getOneLibraryLocationId"/>
+          <LibraryLocationsTable :library-locations="libraryLocations"/>
 
         </div>
       </div>

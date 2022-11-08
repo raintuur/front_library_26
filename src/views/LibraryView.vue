@@ -1,7 +1,11 @@
 <template>
-
+<div class="row">
+  <div class="col-4">
+    <div>
   <LibraryButtons/>
-
+    </div>
+</div>
+</div>
 
 </template>
 
@@ -10,34 +14,7 @@ import LibraryButtons from "@/components/library_components/LibraryButtons";
 
 export default {
   name: "Libraryview",
-  components: {LibraryButtons},
-
-  data: function () {
-    return {
-      allCities: [
-        {
-          cityName: '',
-          cityID: 0
-        }
-      ]
-    }
-
-  },
-  methods: {
-    getLibraryCityName: function () {
-      this.$http.get("/library/city-list")
-          .then(response => {
-            this.allCities = response.data
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    }
-  },
-
-  beforeMount() {
-    this.getLibraryCityName()
-  },
+  components: {LibraryButtons}
 }
 
 </script>

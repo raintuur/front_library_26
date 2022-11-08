@@ -1,11 +1,9 @@
 <template>
-  <div class="col-1 justify-content-start">
-    <div class="px-1 py-1">
-      <button type="button" class="btn btn-success">Kõik</button>
-    </div>
-    <div v-for= "cities in allCities" class="px-1 py-1">
-        <button type="button" class="btn btn-success">{{cities.allCities}}</button>
-    </div>
+  <div>
+  <div class="col-2 d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-success " type="button">Kõik</button>
+    <button v-for="city in allCities" :key="city.cityId" class="btn btn-outline-warning" type="button">{{ city.cityName }}</button>
+  </div>
 
   </div>
 </template>

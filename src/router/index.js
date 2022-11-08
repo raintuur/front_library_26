@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ByCityView from "@/views/By-CityView";
+
 
 Vue.use(VueRouter)
 
@@ -19,6 +21,11 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
+  },
+  {
+    path: '/by-city',
+    name: 'by-city',
+    component: ByCityView
   }
 ]
 

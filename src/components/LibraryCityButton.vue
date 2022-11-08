@@ -26,12 +26,10 @@ export default {
   name: 'LibraryCityButton',
   data: function () {
     return {
-      selectedCityId: 0,
-      libraryName: '',
       cities: [
         {
           cityName: '',
-          CityNameId: 0
+          cityId: 0
         }
       ]
     }

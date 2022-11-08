@@ -22,12 +22,10 @@ export default {
   components: {LibraryCityButton},
   data: function () {
     return {
-      selectedCityId: 0,
-      libraryName: '',
-      cities: [
+    cities: [
         {
           cityName: '',
-          CityNameId: 0
+          CityId: 0
         }
       ]
     }

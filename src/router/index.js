@@ -13,7 +13,7 @@ const routes = [
   },
   {
     path: '/by-city',
-    name: 'library',
+    name: 'libraryRoute',
     component: LibraryView
   },
   {

@@ -2,8 +2,9 @@
   <div id="app">
     <nav>
       <router-link to="/">Kodu</router-link> |
-      <router-link to="/">Raamatukogu</router-link> |
-      <router-link to="/about">Log-in</router-link>
+      <router-link to="/by-city">Raamatukogu</router-link> |
+      <router-link to="/">Log-in</router-link>
+<!--      <router-link to="/about">Log-in</router-link>-->
     </nav>
     <router-view/>
   </div>

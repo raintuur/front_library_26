@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-grid gap-2 col-6 mx-auto">
     <button type="button" class="btn btn-outline-primary">Kõik</button>
     <div v-for="city in cities" :key="city.cityNameID" :value="city.cityNameID">
       <button type="button" class="btn btn-outline-primary">{{ city.cityName }}</button>

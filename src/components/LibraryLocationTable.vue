@@ -24,29 +24,16 @@
 <script>
 export default {
   name: "LibraryLocationTable",
-  data: function () {
-    return {
-      libraries: [
-          {
-        libraryCity: '',
-        libraryID: 0,
-        libraryName: ''
-      }
-      ]
-    }
+  props: {
+    libraries: {}
 
+  },
+  data: function () {
   },
   methods:{
-    getLibrariesInfo: function () {
-      this.$http.get('/library/city-list/all')
-          .then(result=> {
-            this.libraries = result.data
-          })
-
-    }
   },
   beforeMount() {
-    this.getLibrariesInfo()
+    alert(JSON.stringify(this.libraries))
   }
 }
 </script>

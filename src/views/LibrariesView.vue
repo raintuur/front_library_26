@@ -20,6 +20,30 @@ import LibraryLocationTable from "@/components/LibraryLocationTable";
 export default {
   name: "LibrariesView",
   components: {LibraryLocationTable, CitiesButtons},
+  data: function () {
+    return {
+    libraries: [
+      {
+        libraryCity: '',
+        libraryID: 0,
+        libraryName: ''
+      }
+    ]
+  }
+  },
+  methods: {
+    getLibrariesInfo: function () {
+      this.$http.get('/library/city-list/all')
+          .then(result=> {
+            this.libraries = result.data
+          })
+
+    }
+
+  },
+  beforeMount() {
+    this.getLibrariesInfo()
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="row m-4 gap-2">
     <button v-on:click="getCitiesButtonInfo()" type="button" class="btn btn-success">Kõik</button>
-    <button v-if="displayCityButtons" v-for="city in cities" type="button" class="btn btn-outline-success"
+    <button v-for="city in cities" type="button" class="btn btn-outline-success"
             :key="city.cityId" :value="city.cityId">{{ city.cityName }}
     </button>
   </div>
@@ -18,7 +18,7 @@ export default {
           cityId: 0,
         }
       ],
-      displayCityButtons: false
+      // displayCityButtons: false
     }
   },
   methods: {
@@ -26,7 +26,7 @@ export default {
 
       this.$http.get("/library/city-list")
           .then(response => {
-            this.displayCityButtons = true
+            // this.displayCityButtons = true
             this.cities = response.data
           })
           .catch(error => {

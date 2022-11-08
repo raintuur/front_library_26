@@ -5,18 +5,13 @@
 
       <div class="col col-lg-4">
         <div>
-          <LocationButtons :cities="cities"/>
+          <LocationButtons/>
         </div>
       </div>
 
       <LibraryLocationsTable :library-location-info="libraryLocationInfo"/>
-
     </div>
-
-
   </div>
-
-
 </template>
 
 <script>
@@ -28,28 +23,29 @@ export default {
   components: {LibraryLocationsTable, LocationButtons},
   data: function () {
     return {
-      cities: [
+      libraryLocationInfo: [
         {
           cityName: '',
-          cityId: 0
+          libraryName: '',
+          libraryId: 0
         }
       ]
     }
   },
   methods: {
-    getLibraryInfoByCity: function () {
-      this.$http.get("/library/by-city")
+    getLibraryLocationInfo: function () {
+      this.$http.get("/library/city-list/all")
           .then(response => {
-            this.cities = response.data
+            this.libraryLocationInfo = response.data
+            // alert('Oled libraryLocationInfo plokis')
           })
           .catch(error => {
-            alert('catch error triggered')
             console.log(error)
           })
     },
   },
   beforeMount() {
-    this.getLibraryInfoByCity()
+    this.getLibraryLocationInfo()
   }
 }
 </script>

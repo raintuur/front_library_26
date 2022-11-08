@@ -10,7 +10,6 @@
         </tr>
         </thead>
 
-
         <tbody>
         <tr v-for="locationInfo in libraryLocationInfo" :key="locationInfo.libraryName">
           <th scope="row">{{ locationInfo.cityName }}</th>
@@ -24,7 +23,6 @@
         </tbody>
 
       </table>
-
     </div>
   </div>
 </template>
@@ -34,33 +32,6 @@ export default {
   name: 'LibraryLocationsTable',
   props: {
     libraryLocationInfo: {}
-  },
-  data: function () {
-    return {
-      libraryLocationInfo: [
-        {
-          cityName: '',
-          libraryName: '',
-          libraryId: 0
-        }
-      ]
-    }
-  },
-  methods: {
-    getLibraryLocationInfo: function () {
-      this.$http.get("/library/city-list/all")
-          .then(response => {
-            this.libraryLocationInfo = response.data
-            // alert('Oled libraryLocationInfo plokis')
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    },
-  },
-
-  beforeMount() {
-    this.getLibraryLocationInfo()
-  },
+  }
 }
 </script>

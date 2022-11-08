@@ -14,9 +14,31 @@
 <script>
 export default {
   name: 'LocationButtons',
-  props: {
-    cities: {}
+  data: function () {
+    return {
+      cities: [
+        {
+          cityName: '',
+          cityId: 0
+        }
+      ]
+    }
+  },
+  methods: {
+    getCitiesInfo: function () {
+      this.$http.get("/library/by-city")
+          .then(response => {
+            this.cities = response.data
+          })
+          .catch(error => {
+            alert('catch error triggered')
+            console.log(error)
+          })
+    },
+  },
+  beforeMount() {
+    this.getCitiesInfo()
+    this.getLibraryLocationInfo()
   }
-
 }
 </script>

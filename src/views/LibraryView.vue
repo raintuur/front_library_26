@@ -5,7 +5,10 @@
 
       <div class="col col-lg-4">
         <div>
-          <LocationButtons/>
+          <LocationButtons
+              @allButtonsPressedEvent="getAllLibrariesLocationInfo"
+              @libraryCityClickEvent="getCityListByCityId"
+          />
         </div>
       </div>
       <LibraryLocationsTable :library-location-info="libraryLocationInfo"
@@ -34,11 +37,10 @@ export default {
     }
   },
   methods: {
-    getLibraryLocationInfo: function () {
+    getAllLibrariesLocationInfo: function () {
       this.$http.get("/library/city-list/all")
           .then(response => {
             this.libraryLocationInfo = response.data
-            // alert('Oled libraryLocationInfo plokis')
           })
           .catch(error => {
             console.log(error)
@@ -47,7 +49,7 @@ export default {
     getCityListByCityId: function (cityNameId) {
       this.$http.get("/library/city-list/by-city-id", {
             params: {
-              cityNameId: this.libraryLocationInfo.cityId
+              cityNameId: cityNameId
             }
           }
       ).then(response => {
@@ -58,7 +60,7 @@ export default {
     },
   },
   beforeMount() {
-    this.getLibraryLocationInfo()
+    this.getAllLibrariesLocationInfo()
   }
 }
 </script>

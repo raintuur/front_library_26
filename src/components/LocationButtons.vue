@@ -4,7 +4,8 @@
       <button v-on:click="allButtonsPressedEvent()" type="button" class="btn btn-primary col-lg-4">Kõik</button>
     </div>
     <div v-for="city in cities" :key="city.cityId">
-      <button v-on:click="libraryCityClickEvent(city.cityId)" type="button" class="btn btn-outline-primary col-lg-4 mt-3">
+      <button v-on:click="libraryCityClickEvent(city.cityId)" type="button"
+              class="btn btn-outline-primary col-lg-4 mt-3">
         {{ city.cityName }}
       </button>
     </div>

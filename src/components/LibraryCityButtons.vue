@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     getCitiesButtonInfo: function () {
+
       this.$http.get("/library/city-list")
           .then(response => {
             this.displayCityButtons = true

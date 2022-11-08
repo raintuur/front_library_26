@@ -1,20 +1,28 @@
 <template>
+  <div class="container">
 
-  <table class="justify-content-start col-lg-4">
-    <thead>
-    <button type="button" class="btn btn-primary col-lg-3">Kõik</button>
-    </thead>
+    <div class="justify-content-start">
 
-    <tbody>
-    <tr v-for="libraryLocation in libraryLocations">
-      <td>
-        <button type="button" class="btn btn-primary col-lg-3">
-          {{ libraryLocation.cityName }}
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      <div class="col col-lg-4">
+        <div>
+        <button type="button" class="btn btn-primary col-lg-4">Kõik</button>
+        </div>
+
+        <div v-for="libraryLocation in libraryLocations">
+            <button type="button" class="btn btn-outline-primary col-lg-4">
+              {{ libraryLocation.cityName }}
+            </button>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
 
 </template>
 

@@ -6,7 +6,25 @@
           <CitiesButtons/>
         </div>
         <div class="col col-lg-9">
-        <LibraryLocationTable/>
+          <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Linn</th>
+              <th scope="col">Nimi</th>
+              <th scope="col" ></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr v-for="library in libraries">
+              <td>{{library.libraryCity}}</td>
+              <td>{{library.libraryName}}</td>
+              <td><button type="button" class="btn btn-outline-primary"> Vaata </button></td>
+            </tr>
+            </tbody>
+
+          </table>
+
         </div>
       </div>
     </div>
@@ -15,11 +33,11 @@
 
 <script>
 import CitiesButtons from "@/components/CitiesButtons";
-import LibraryLocationTable from "@/components/LibraryLocationTable";
+
 
 export default {
   name: "LibrariesView",
-  components: {LibraryLocationTable, CitiesButtons},
+  components: { CitiesButtons},
   data: function () {
     return {
     libraries: [

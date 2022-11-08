@@ -1,10 +1,8 @@
 <template>
   <div class="row">
-    <div class = "container">
-      <div class="col col-lg-8">
+      <div class="col col-lg-4">
         <LibrariesButtons/>
       </div>
-    </div>
   </div>
 </template>
 

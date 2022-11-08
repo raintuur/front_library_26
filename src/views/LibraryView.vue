@@ -1,21 +1,18 @@
 <template>
   <div class="container">
 
-    <div class="justify-content-start">
+    <div class="row justify-content-start">
 
       <div class="col col-lg-4">
         <div>
-          <button type="button" class="btn btn-primary col-lg-4">Kõik</button>
+          <LocationButtons :cities="cities"/>
         </div>
-
-        <div>
-          <LocationButtons :library-locations="libraryLocations"/>
-        </div>
-
       </div>
 
+      <LibraryLocationsTable :library-location-info="libraryLocationInfo"/>
 
     </div>
+
 
   </div>
 
@@ -24,10 +21,35 @@
 
 <script>
 import LocationButtons from "@/components/LocationButtons";
+import LibraryLocationsTable from "@/components/LibraryLocationsTable";
 
 export default {
   name: "LibraryView",
-  components: {LocationButtons},
-
+  components: {LibraryLocationsTable, LocationButtons},
+  data: function () {
+    return {
+      cities: [
+        {
+          cityName: '',
+          cityId: 0
+        }
+      ]
+    }
+  },
+  methods: {
+    getLibraryInfoByCity: function () {
+      this.$http.get("/library/by-city")
+          .then(response => {
+            this.cities = response.data
+          })
+          .catch(error => {
+            alert('catch error triggered')
+            console.log(error)
+          })
+    },
+  },
+  beforeMount() {
+    this.getLibraryInfoByCity()
+  }
 }
 </script>

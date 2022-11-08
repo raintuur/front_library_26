@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div v-for="libraryLocation in libraryLocations">
+    <div>
+      <button type="button" class="btn btn-primary col-lg-4">Kõik</button>
+    </div>
+    <div v-for="city in cities">
       <button type="button" class="btn btn-outline-primary col-lg-4">
-        {{ libraryLocation.cityName }}
+        {{ city.cityName }}
       </button>
     </div>
   </div>
@@ -12,32 +15,8 @@
 export default {
   name: 'LocationButtons',
   props: {
-    libraryLocations: {}
-  },
-  data: function () {
-    return {
-      libraryLocations: [
-        {
-          cityName: '',
-          cityId: 0
-        }
-      ]
-    }
-  },
-  methods: {
-    getLibraryInfo: function () {
-      this.$http.get("/library/by-city")
-          .then(response => {
-            this.libraryLocations = response.data
-          })
-          .catch(error => {
-            alert('catch error triggered')
-            console.log(error)
-          })
-    },
-  },
-  beforeMount() {
-    this.getLibraryInfo()
+    cities: {}
   }
+
 }
 </script>

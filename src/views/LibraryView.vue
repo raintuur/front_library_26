@@ -4,8 +4,7 @@
       <div class="row justify-content-start">
         <div class="col col-lg-2">
           <LibraryCityButtons @libraryCityClickEvent="getOneLibraryLocationId"
-          @libraryAllCityClickEvent = "getAllLibraryLocationsById"
-          />
+          @libraryAllCityClickEvent = "getAllLibraryLocationsById"/>
         </div>
         <div class="col col-lg-9">
           <LibraryLocationsTable :library-locations="libraryLocations" @libraryCityClickEvent="getOneLibraryLocationId"/>

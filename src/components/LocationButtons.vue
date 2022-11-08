@@ -1,10 +1,10 @@
 <template>
   <div>
     <div>
-      <button v-on:click="allCitiesButtonClicked()" type="button" class="btn btn-primary col-lg-4">Kõik</button>
+      <button v-on:click="allButtonsPressedEvent()" type="button" class="btn btn-primary col-lg-4">Kõik</button>
     </div>
-    <div v-for="city in cities">
-      <button type="button" class="btn btn-outline-primary col-lg-4 mt-3">
+    <div v-for="city in cities" :key="city.cityId">
+      <button v-on:click="libraryCityClickEvent(city.cityId)" type="button" class="btn btn-outline-primary col-lg-4 mt-3">
         {{ city.cityName }}
       </button>
     </div>
@@ -40,8 +40,11 @@ export default {
             console.log(error)
           })
     },
-    allCitiesButtonClicked: function () {
-      this.$emit('allCitiesButtonClicked')
+    allButtonsPressedEvent: function () {
+      this.$emit('allButtonsPressedEvent')
+    },
+    libraryCityClickEvent: function (selectedCityId) {
+      this.$emit('libraryCityClickEvent', selectedCityId)
     },
   },
   beforeMount() {

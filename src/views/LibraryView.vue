@@ -8,8 +8,9 @@
           <LocationButtons/>
         </div>
       </div>
+      <LibraryLocationsTable :library-location-info="libraryLocationInfo"
 
-      <LibraryLocationsTable :library-location-info="libraryLocationInfo"/>
+      />
     </div>
   </div>
 </template>
@@ -42,6 +43,18 @@ export default {
           .catch(error => {
             console.log(error)
           })
+    },
+    getCityListByCityId: function (cityNameId) {
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {
+              cityNameId: this.libraryLocationInfo.cityId
+            }
+          }
+      ).then(response => {
+        this.libraryLocationInfo = response.data
+      }).catch(error => {
+        console.log(error)
+      })
     },
   },
   beforeMount() {

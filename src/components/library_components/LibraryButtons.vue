@@ -1,23 +1,26 @@
 <template>
+  <div class="col-1 justify-content-start">
+    <div class="px-1 py-1">
+      <button type="button" class="btn btn-success">Kõik</button>
+    </div>
+    <div v-for= "cities in allCities" class="px-1 py-1">
+        <button type="button" class="btn btn-success">{{cities.allCities}}</button>
+    </div>
 
-  <LibraryButtons/>
-
-
+  </div>
 </template>
 
+
 <script>
-import LibraryButtons from "@/components/library_components/LibraryButtons";
 
 export default {
-  name: "Libraryview",
-  components: {LibraryButtons},
-
+  name: 'LibraryButtons',
   data: function () {
     return {
       allCities: [
         {
           cityName: '',
-          cityID: 0
+          cityId: 0
         }
       ]
     }
@@ -38,7 +41,9 @@ export default {
   beforeMount() {
     this.getLibraryCityName()
   },
+
+
 }
 
-</script>
 
+</script>

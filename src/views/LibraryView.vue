@@ -6,25 +6,7 @@
           <LibraryCityButtons/>
         </div>
         <div class="col col-lg-9">
-
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Linn</th>
-              <th scope="col">Nimi</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="libraryLocation in libraryLocations" :key="libraryLocation.libraryId">
-              <th scope="row">{{libraryLocation.cityName}}</th>
-              <td>{{libraryLocation.libraryName}}</td>
-              <td>
-                <button type="button" class="btn btn-outline-success">Vaata</button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <LibraryLocationsTable/>
 
         </div>
       </div>
@@ -35,10 +17,11 @@
 <script>
 
 import LibraryCityButtons from "@/components/LibraryCityButtons";
+import LibraryLocationsTable from "@/components/LibraryLocationsTable";
 
 export default {
   name: "LibraryView",
-  components: {LibraryCityButtons},
+  components: {LibraryLocationsTable, LibraryCityButtons},
   data: function () {
     return {
       libraryLocations: [
@@ -49,23 +32,8 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-
-    getAllLibraryLocationsById: function () {
-      this.$http.get("/library/city-list/all")
-          .then(response => {
-            this.libraryLocations = response.data
-            // console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    },
-  },
-  beforeMount() {
-    this.getAllLibraryLocationsById()
   }
+
 
 }
 </script>

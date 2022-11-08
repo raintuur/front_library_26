@@ -37,15 +37,23 @@ export default {
     }
   },
   methods: {
-    getCitiesSelectBoxInfo: function () {
+    getLibrariesCityButtonInfo: function () {
       this.$http.get('/library/city-list')
           .then(result => {
             this.cities = result.data
           })
           .catch(error => {
-            alert
-          })
+            alert ('VIGA!')
+            console.log('Vastuseks on viga!')
+          }),
+      },
+
+    clickSelectCityEvent: function () {
+      this.$emit('clickSelectCityEvent' , this.SelectedCityId)
     }
+  },
+  beforeMount() {
+    this.getLibrariesCityButtonInfo()
   }
 
 }

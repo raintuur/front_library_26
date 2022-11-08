@@ -1,19 +1,24 @@
 <template>
   <div>
     <div>
-      <button type="button" class="btn btn-primary col-lg-4">Kõik</button>
+      <button v-on:click="allCitiesButtonClicked()" type="button" class="btn btn-primary col-lg-4">Kõik</button>
     </div>
     <div v-for="city in cities">
-      <button type="button" class="btn btn-outline-primary col-lg-4">
+      <button type="button" class="btn btn-outline-primary col-lg-4 mt-3">
         {{ city.cityName }}
       </button>
     </div>
   </div>
 
 </template>
+
+
 <script>
 export default {
   name: 'LocationButtons',
+  props: {
+    LibraryLocationsTable: {}
+  },
   data: function () {
     return {
       cities: [
@@ -35,10 +40,12 @@ export default {
             console.log(error)
           })
     },
+    allCitiesButtonClicked: function () {
+      this.$emit('allCitiesButtonClicked')
+    },
   },
   beforeMount() {
     this.getCitiesInfo()
-    this.getLibraryLocationInfo()
   }
 }
 </script>

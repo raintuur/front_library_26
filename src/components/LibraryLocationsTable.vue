@@ -11,7 +11,7 @@
         </thead>
 
         <tbody>
-        <tr v-for="locationInfo in libraryLocationInfo" :key="locationInfo.libraryName">
+        <tr v-for="locationInfo in libraryLocationInfo" :key="locationInfo.libraryId">
           <th scope="row">{{ locationInfo.cityName }}</th>
           <td>{{ locationInfo.libraryName }}</td>
           <td>

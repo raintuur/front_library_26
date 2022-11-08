@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-2">
-        <LibraryViewButtons :library-cities="libraryCities" @buttonAllPressed="getLibraryTableInfo"/>
+        <LibraryViewButtons :library-cities="libraryCities" @buttonAllPressed="getLibraryTableInfo" @buttonOtherPressed="getLibraryTableInfoByCityId"/>
       </div>
       <div class="col col-10">
         <LibraryViewTable :library-locations="libraryLocations"/>
@@ -57,6 +57,20 @@ export default {
           .catch(error => {
             console.log(error)
           })
+    },
+
+    getLibraryTableInfoByCityId: function (selectedCityId) {
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {
+              cityId: selectedCityId,
+            }
+          }
+      ).then(response => {
+        this.libraryLocations = response.data
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      })
     },
   },
 

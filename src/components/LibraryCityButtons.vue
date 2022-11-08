@@ -1,7 +1,7 @@
 <template>
   <div class="row m-4 gap-2">
-    <button v-on:click="getCitiesButtonInfo()" type="button" class="btn btn-success">Kõik</button>
-    <button v-for="city in cities" type="button" class="btn btn-outline-success"
+    <button v-on:click="libraryAllCityClickEvent" type="button" class="btn btn-success">Kõik</button>
+    <button v-on:click="libraryCityClickEvent(cities.cityId)" v-model="city.cityId" v-for="city in cities" type="button" class="btn btn-outline-success"
             :key="city.cityId" :value="city.cityId">{{ city.cityName }}
     </button>
   </div>
@@ -12,6 +12,7 @@ export default {
   name: 'LibraryCityButtons',
   data: function () {
     return {
+
       cities: [
         {
           cityName: '',
@@ -22,6 +23,15 @@ export default {
     }
   },
   methods: {
+
+    libraryCityClickEvent: function () {
+      this.$emit('libraryCityClickEvent', this.cities.cityId)
+    },
+
+    libraryAllCityClickEvent: function () {
+      this.$emit('libraryAllCityClickEvent')
+    },
+
     getCitiesButtonInfo: function () {
 
       this.$http.get("/library/city-list")

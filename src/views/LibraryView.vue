@@ -3,10 +3,12 @@
     <div class="container">
       <div class="row justify-content-start">
         <div class="col col-lg-2">
-          <LibraryCityButtons/>
+          <LibraryCityButtons @libraryCityClickEvent="getOneLibraryLocationId"
+          @libraryAllCityClickEvent = "getAllLibraryLocationsById"
+          />
         </div>
         <div class="col col-lg-9">
-          <LibraryLocationsTable/>
+          <LibraryLocationsTable :library-locations="libraryLocations" @libraryCityClickEvent="getOneLibraryLocationId"/>
 
         </div>
       </div>
@@ -32,6 +34,39 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+
+
+    getOneLibraryLocationId: function (selectedLibraryId) {
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {
+              cityId: selectedLibraryId,
+
+            }
+          }
+      ).then(response => {
+        this.libraryLocations = response.data
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+
+    getAllLibraryLocationsById: function () {
+      this.$http.get("/library/city-list/all")
+          .then(response => {
+            this.libraryLocations = response.data
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    }
+  },
+
+  beforeMount() {
+    this.getAllLibraryLocationsById()
   }
 
 

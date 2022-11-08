@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/">Kodu</router-link> |
-      <router-link to="/by-city">Raamatukogu</router-link> |
+      <router-link to="/by-city">Raamatukogud</router-link> |
       <router-link to="/about">Log-in</router-link>
     </nav>
     <router-view/>

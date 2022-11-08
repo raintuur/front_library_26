@@ -3,27 +3,9 @@
     <div class="container">
       <div class="row justify-content-start">
         <div class="col col-lg-3">
-          <!--          <button type="button" class="btn btn-outline-primary">Primary</button>-->
-          <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-            Kõik
-          </button>
-          <div class="row m-1">
-          </div>
-          <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-            Tallinn
-          </button>
-          <div class="row m-1">
-          </div>
-          <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-            Tartu
-          </button>
-          <div class="row m-1">
-          </div>
-          <button type="button" class="col-xs-12 col-sm-4 text-center res-pad same-width-button btn btn-outline-dark">
-            Pärnu
-          </button>
-          <div class="row">
-          </div>
+
+          <LibraryCityButton/>
+
         </div>
       </div>
     </div>
@@ -31,13 +13,31 @@
 
 
 </template>
-
 <script>
+
+import LibraryCityButton from "@/components/LibraryCityButton";
+
 export default {
-  name: "LibraryView"
+  name: 'Buttons',
+  components: {LibraryCityButton},
+  data: function () {
+    return {
+      selectedCityId: 0,
+      libraryName: '',
+      cities: [
+        {
+          cityName: '',
+          CityNameId: 0
+        }
+      ]
+    }
+  }
 }
+
+methods: {
+
+}
+
+
 </script>
 
-<style scoped>
-
-</style>

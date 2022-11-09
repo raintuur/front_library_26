@@ -2,15 +2,15 @@
   <div>
 
     <div class="row justify-content-center">
-
-
       <div class="col col-lg-3">
-        <CityButtons/>
+        <CityButtons
+            @clickCityButtonEvent="getLibraryLocationsInfoById"
+            @clickAllCityButtonEvent="getAllLibraryLocationsInfo"
+        />
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
       </div>
-
     </div>
 
   </div>
@@ -47,6 +47,9 @@ export default {
         case 21:
           preference = 'code=200, example=200 - Tartu'
           break;
+        case 23:
+          preference = 'code=200, example=200 - Pärnu'
+          break;
       }
 
       this.$http.get("/library/city-list/by-city-id", {
@@ -58,7 +61,7 @@ export default {
             }
           }
       ).then(response => {
-        console.log(response.data)
+        this.libraryLocations = response.data
       }).catch(error => {
         console.log(error)
       });
@@ -77,7 +80,6 @@ export default {
   },
   beforeMount() {
     this.getAllLibraryLocationsInfo()
-    this.getLibraryLocationsInfoById(23)
   }
 }
 </script>

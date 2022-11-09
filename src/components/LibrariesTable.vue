@@ -13,7 +13,7 @@
       <td>{{library.libraryCity}}</td>
       <td>{{library.libraryName}}</td>
       <td>
-        <button type="button" class="btn btn-outline-primary"> Vaata</button>
+        <button type="button" class="btn btn-outline-primary"> Vaata {{library.libraryID}}</button>
       </td>
     </tr>
     </tbody>

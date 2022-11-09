@@ -4,7 +4,7 @@
     <td>{{location.cityName}}</td>
     <td>{{location.libraryName}}</td>
     <td>
-      <button type="button" class="btn btn-light">Vaata {{location.libraryId}}</button>
+      <button type="button" class="btn btn-warning">Vaata {{location.libraryId}}</button>
     </td>
   </tr>
   </tbody>

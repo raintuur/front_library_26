@@ -5,7 +5,9 @@
 
 
       <div class="col col-lg-3">
-        <CityButtons/>
+        <CityButtons
+            @clickCityButtonEvent="getLibraryLocationsInfoById"
+            @clickAllCityButtonEvent="getAllLibraryLocationsInfo"/>
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
@@ -58,7 +60,7 @@ export default {
             }
           }
       ).then(response => {
-        console.log(response.data)
+        this.libraryLocations = response.data
       }).catch(error => {
         console.log(error)
       });
@@ -77,7 +79,6 @@ export default {
   },
   beforeMount() {
     this.getAllLibraryLocationsInfo()
-    this.getLibraryLocationsInfoById(23)
   }
 }
 </script>

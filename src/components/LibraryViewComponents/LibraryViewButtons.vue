@@ -36,7 +36,7 @@ export default {
           })
     },
 
-    buttonAllpressed: function () {
+      buttonAllpressed: function () {
       this.$emit('buttonAllPressed')
     },
 

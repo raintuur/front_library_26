@@ -5,7 +5,7 @@
 
 
       <div class="col col-lg-3">
-        <CityButtons@clickCityButton/>
+        <CityButtons/>
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
@@ -77,7 +77,6 @@ export default {
   },
   beforeMount() {
     this.getAllLibraryLocationsInfo()
-    // this.getLibraryLocationsInfoById(23)
   }
 }
 </script>

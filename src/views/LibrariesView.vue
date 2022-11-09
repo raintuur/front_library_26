@@ -1,13 +1,18 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-lg-2">
+
+    <div class="row justify-content-center">
+
+
+      <div class="col col-lg-3">
         <CityButtons/>
       </div>
-      <div class="col-lg-5">
+      <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -29,17 +34,18 @@ export default {
       ]
     }
   },
-  methods: {
+  methods:{
+
     getAllLibrariesLocationInfo: function () {
       this.$http.get("/library/city-list/all")
           .then(response => {
-            this.getAllLibrariesLocationInfo = response.data
-            console.log(response.data)
+            this.libraryLocations = response.data
           })
           .catch(error => {
             console.log(error)
           })
     },
+
   },
   beforeMount() {
     this.getAllLibrariesLocationInfo()

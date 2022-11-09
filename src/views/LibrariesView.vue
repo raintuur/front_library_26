@@ -38,13 +38,16 @@ export default {
 
     getLibraryLocationsInfoById: function (cityId) {
 
-      let preference = ''
-      if (cityId == 15) {
-        preference = 'code=200, example=200 - Tallinn'
-      } else if (cityId == 23) {
-        preference = 'code=200, example=200 - Pärnu'
-      }
 
+      let preference = ''
+      switch (cityId) {
+        case 15:
+          preference = 'code=200, example=200 - Tallinn'
+          break;
+        case 21:
+          preference = 'code=200, example=200 - Tartu'
+          break;
+      }
 
       this.$http.get("/library/city-list/by-city-id", {
             params: {cityId: cityId},

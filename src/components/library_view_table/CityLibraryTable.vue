@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <table class="table table-success table-striped-columns" style=margin-left:100px>
 
             <thead>
@@ -13,7 +14,7 @@
       <tr v-for="citiesAndLibraries in libraries">
         <td>{{citiesAndLibraries.cityName}}</td>
         <td>{{citiesAndLibraries.libraryName}}</td>
-        <td><button type="button" class="btn btn-warning">Vaata</button></td>
+        <td><button type="button" class="btn btn-warning">Vaata{{citiesAndLibraries.libraryId}}</button></td>
 
       </tr>
       </tbody>

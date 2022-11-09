@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LibrariesView from "@/views/LibrariesView";
 
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,6 +10,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/by-city',
+    name: 'librariesRoute',
+    component: LibrariesView
   },
   {
     path: '/about',
@@ -21,11 +25,6 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
-  },
-  {
-    path: '/by-city',
-    name: 'librariesRoute',
-    component: LibrariesView
   }
 ]
 

@@ -1,19 +1,19 @@
 <template>
-<div>
+  <div>
 
-  <div class="row justify-content-center">
+    <div class="row justify-content-center">
 
 
-    <div class="col col-lg-3">
-      <CityButtons/>
-    </div>
-    <div class="col col-lg-9">
-      <LibraryLocationsTable :library-locations="libraryLocations"/>
+      <div class="col col-lg-3">
+        <CityButtons/>
+      </div>
+      <div class="col col-lg-9">
+        <LibraryLocationsTable :library-locations="libraryLocations"/>
+      </div>
+
     </div>
 
   </div>
-
-</div>
 </template>
 
 <script>
@@ -34,18 +34,34 @@ export default {
       ]
     }
   },
-  methods:{
-    someMethod: function () {
-      this.$http.get("/some/path")
-          .then(response => {
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
+  methods: {
+
+    getLibraryLocationsInfoById: function (cityId) {
+
+      let preference = ''
+      if (cityId == 15) {
+        preference = 'code=200, example=200 - Tallinn'
+      } else if (cityId == 23) {
+        preference = 'code=200, example=200 - Pärnu'
+      }
+
+
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {cityId: cityId},
+            headers: {
+              'Content-Type': 'application/json',
+              Prefer: preference
+
+            }
+          }
+      ).then(response => {
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      });
     },
 
-    getAllLibrariesLocationInfo: function () {
+    getAllLibraryLocationsInfo: function () {
       this.$http.get("/library/city-list/all")
           .then(response => {
             this.libraryLocations = response.data
@@ -57,7 +73,8 @@ export default {
 
   },
   beforeMount() {
-    this.getAllLibrariesLocationInfo()
+    this.getAllLibraryLocationsInfo()
+    this.getLibraryLocationsInfoById(23)
   }
 }
 </script>

@@ -12,7 +12,6 @@
         </div>
       </div>
       <LibraryLocationsTable :library-location-info="libraryLocationInfo"
-
       />
     </div>
   </div>
@@ -47,16 +46,32 @@ export default {
           })
     },
     getCityListByCityId: function (cityNameId) {
+
+      let preference = ''
+      switch (cityNameId) {
+        case 15:
+          preference = 'Prefer: code=200, example=200'
+          break;
+        case 21:
+          preference = 'Prefer: code=200, example=200 tartu'
+          break;
+        case 23:
+          preference = ''
+          break;
+      }
+
       this.$http.get("/library/city-list/by-city-id", {
-            params: {
-              cityNameId: cityNameId
+            params: {cityNameId: cityNameId},
+            headers: {
+              'Content-Type': 'application/json',
+              Prefer: preference
             }
           }
       ).then(response => {
         this.libraryLocationInfo = response.data
       }).catch(error => {
         console.log(error)
-      })
+      });
     },
   },
   beforeMount() {

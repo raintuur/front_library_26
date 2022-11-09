@@ -1,12 +1,16 @@
 <template>
 <div>
 
-  <div class="row">
-    
-    <div class="col-lg-3">
+  <div class="row justify-content-center">
+
+
+    <div class="col col-lg-3">
       <CityButtons/>
     </div>
-    
+    <div class="col col-lg-9">
+      <LibraryLocationsTable :library-locations="libraryLocations"/>
+    </div>
+
   </div>
 
 </div>
@@ -14,10 +18,47 @@
 
 <script>
 import CityButtons from "@/views/CityButtons";
+import LibraryLocationsTable from "@/components/library_locations_table/LibraryLocationsTable";
 
 export default {
   name: "LibrariesView",
-  components: {CityButtons}
+  components: {LibraryLocationsTable, CityButtons},
+  data: function () {
+    return {
+      libraryLocations: [
+        {
+          cityName: '',
+          libraryName: '',
+          libraryId: 0
+        }
+      ]
+    }
+  },
+  methods:{
+    someMethod: function () {
+      this.$http.get("/some/path")
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+
+    getAllLibrariesLocationInfo: function () {
+      this.$http.get("/library/city-list/all")
+          .then(response => {
+            this.libraryLocations = response.data
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+
+  },
+  beforeMount() {
+    this.getAllLibrariesLocationInfo()
+  }
 }
 </script>
 

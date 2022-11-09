@@ -1,6 +1,6 @@
 <template>
   <tbody>
-  <tr v-for="location in libraryLocations">
+  <tr v-for="location in libraryLocations" :key="location.libraryId">
     <td>{{ location.cityName }}</td>
     <td>{{ location.libraryName }}</td>
     <td>

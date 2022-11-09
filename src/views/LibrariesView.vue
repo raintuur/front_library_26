@@ -2,15 +2,16 @@
   <div>
 
     <div class="row justify-content-center">
+
+
       <div class="col col-lg-3">
-        <CityButtons
-            @clickCityButtonEvent="getLibraryLocationsInfoById"
-            @clickAllCityButtonEvent="getAllLibraryLocationsInfo"
-        />
+        <CityButtons @clickCityButtonsEvent="getLibraryLocationsInfoById"
+                     @clickAllCityButtonsEvent="getAllLibraryLocationsInfo"/>
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
       </div>
+
     </div>
 
   </div>
@@ -61,7 +62,7 @@ export default {
             }
           }
       ).then(response => {
-        this.libraryLocations = response.data
+        console.log(response.data)
       }).catch(error => {
         console.log(error)
       });
@@ -80,6 +81,7 @@ export default {
   },
   beforeMount() {
     this.getAllLibraryLocationsInfo()
+    this.getLibraryLocationsInfoById(23)
   }
 }
 </script>

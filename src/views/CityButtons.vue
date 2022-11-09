@@ -21,15 +21,14 @@ export default {
     }
   },
   methods: {
-    clickCityButtonEvent: function (cityId) {
-      this.$emit('clickCityButtonEvent', cityId);
-    },
+    clickCityButtonEvent: function(cityId) {
+      this.$emit('clickCityButtonsEvent', cityId)
 
+    },
     clickAllCityButtonEvent: function () {
-      this.$emit('clickAllCityButtonEvent')
+      this.$emit('clickAllCityButtonsEvent')
+
     },
-
-
 
     getAllCities: function () {
       this.$http.get("/library/city-list")

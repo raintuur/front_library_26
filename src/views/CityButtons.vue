@@ -1,7 +1,10 @@
 <template>
   <div class="d-grid gap-2 col-6 mx-auto">
-    <button type="button" class="btn btn-success">Kõik</button>
-    <button v-for="city in cities" :key="city.cityId" class="btn btn-danger" type="button">{{city.cityName}}</button>
+    <button v-on:click="clickAllCityButtonEvent()"  type="button" class="btn btn-success">Kõik</button>
+    <button v-for="city in cities" :key="city.cityId" v-on:click="clickCityButtonEvent(city.cityId)"
+            class="btn btn-danger"
+            type="button">{{ city.cityName }}
+    </button>
   </div>
 </template>
 <script>
@@ -28,9 +31,17 @@ export default {
             console.log(error)
           })
     },
+    clickCityButtonEvent: function (cityId) {
+      // console.log('clickCityButtonEvent' + cityId)
+      this.$emit('clickCityButtonEvent', cityId);
+    },
+    clickAllCityButtonEvent: function () {
+      this.$emit('clickAllCityButtonEvent')
+    },
   },
   beforeMount() {
     this.getAllCities()
+
   }
 
 }

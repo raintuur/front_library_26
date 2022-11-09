@@ -4,7 +4,10 @@
     <div class="row">
 
       <div class="col col-lg-3">
-        <CityButtons/>
+        <CityButtons
+            @clickCityButtonEvent="getLibraryLocationsInfoById"
+            @clickAllCityButtonEvent="getAllLibrariesLocationInfo"
+        />
       </div>
       <div class="col col-lg-6 mx-5">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
@@ -55,27 +58,29 @@ export default {
         case 23:
           preference = 'code=200, example=200 - Pärnu'
           break;
+        case 21:
+          preference = 'code=200, example=200 - Tartu'
+          break;
       }
 
-      this.$http.get("/library/city-list/by-city", {
+      this.$http.get("/library/city-list/by-city-id", {
             params: {cityId: cityId},
             headers: {
               'Content-Type': 'application/json',
               Prefer: preference
-              // Prefer: 'code=200, example=200 - Pärnu'
             }
 
           }
       ).then(response => {
-        console.log(response.data)
+        this.libraryLocations = response.data
       }).catch(error => {
         console.log(error)
       })
     },
+
   },
   beforeMount() {
     this.getAllLibrariesLocationInfo()
-    this.getLibraryLocationsInfoById(15)
   }
 }
 </script>

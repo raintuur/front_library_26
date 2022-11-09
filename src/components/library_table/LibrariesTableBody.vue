@@ -13,7 +13,8 @@
 export default {
   name: 'LibrariesTableBody',
   props: {
-    libraryInfo: {}
+    libraryInfo: {
+    }
   }
 }
 </script>

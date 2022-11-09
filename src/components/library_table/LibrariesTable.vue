@@ -11,31 +11,8 @@ import LibrariesTableBody from "@/components/library_table/LibrariesTableBody";
 export default {
   name: 'LibrariesTable',
   components: {LibrariesTableBody, LibrariesTableHead},
-  data: function () {
-    return {
-      libraryInfo: [
-        {
-          cityName: '',
-          libraryName:'',
-          libraryId: 0
-        }
-      ]
-    }
-  },
-  methods: {
-    getlibraryInfo: function () {
-      this.$http.get("/library/city-list/all")
-          .then(response => {
-            this.libraryInfo = response.data
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    },
-  },
-  beforeMount() {
-    this.getlibraryInfo()
+  props: {
+    libraryInfo: {},
   }
 }
 </script>

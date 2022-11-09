@@ -9,7 +9,7 @@
     </thead>
 
     <tbody>
-    <tr v-for="library in libraries">
+    <tr v-for="library in libraries" :key="libraries.libraryID">
       <td>{{library.libraryCity}}</td>
       <td>{{library.libraryName}}</td>
       <td>

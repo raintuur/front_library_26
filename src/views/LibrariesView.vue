@@ -34,6 +34,29 @@ export default {
   }
   },
   methods: {
+    getLibraryLocationsInfoById: function (cityId) {
+
+      // let prefernce = ''
+      if (cityId == 15){
+        this.preference = 'code=200, example=200 - Tallinn'
+      } else if (cityId == 23) {
+        this.preference = 'code=200, example=200 - Pärnu'
+
+      }
+
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {cityId: 'cityId'},
+        headers: {
+              'Content-Type': 'applications/json',
+        Prefer: this.preference
+            }
+          }
+      ).then(response => {
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     getLibrariesInfo: function () {
       this.$http.get('/library/city-list/all')
           .then(result=> {
@@ -47,6 +70,7 @@ export default {
   },
   beforeMount() {
     this.getLibrariesInfo()
+    this.getLibraryLocationsInfoById(15)
   }
 }
 </script>

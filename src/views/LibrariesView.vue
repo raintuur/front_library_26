@@ -2,15 +2,15 @@
   <div>
 
     <div class="row justify-content-center">
-
-
       <div class="col col-lg-3">
-        <CityButtons/>
+        <CityButtons
+            @clickCityButtonEvent="getLibraryLocationsInfoById"
+            @clickAllCityButtonEvent="getAllLibraryLocationsInfo"
+        />
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
       </div>
-
     </div>
 
   </div>
@@ -46,6 +46,9 @@ export default {
           break;
         case 21:
           preference = 'code=200, example=200 - Tartu'
+          break;
+        case 23:
+          preference = 'code=200, example=200 - Pärnu'
           break;
       }
 

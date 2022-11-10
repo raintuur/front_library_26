@@ -4,8 +4,8 @@
     <td>{{location.cityName}}</td>
     <td>{{location.libraryName}}</td>
     <td>
-      <button v-on:click="navigateToLibraryView(location.libraryName, location.libraryId)" type="button" class="btn btn-warning">Vaata {{location.libraryId}}</button>
-    </td>
+      <button v-on:click="navigateToLibraryView(location)" type="button" class="btn btn-warning">Vaata</button></td>
+
   </tr>
   </tbody>
 </template>
@@ -17,9 +17,15 @@ export default {
   },
 
   methods: {
-    navigateToLibraryView: function (libraryName, libraryId){
-      this.$router.push({path: '/admin/library', query: {libraryId}})
-      sessionStorage.setItem('libraryName', libraryName)
+    navigateToLibraryView: function (location){
+
+      sessionStorage.setItem('notification', location.notification),
+          sessionStorage.setItem('libraryName', location.libraryName)
+
+      this.$router.push({
+        name: 'libraryAdminRoute', query:{libraryId: location.libraryId},
+
+      })
     }
   }
 }

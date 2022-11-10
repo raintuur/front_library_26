@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: '/admin/library',
-    name: 'adminLibraryRoute',
+    name: 'libraryAdminRoute',
     component: LibraryAdminView
   },
   {

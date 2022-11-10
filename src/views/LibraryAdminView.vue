@@ -1,9 +1,14 @@
 <template>
   <div>
-      <h1>
-        Keskraamatukogu ID:{{libraryId}}
-      </h1>
-    <h2> <button type="button" class="btn btn-danger">Danger</button> </h2>
+    <h1>
+      {{libraryName}} id: {{libraryId}}
+    </h1>
+    <div>
+      <div v-if="notification !== 'undefined'" class="alert alert-danger" role="alert">
+        {{ notification }}
+      </div>
+    </div>
+
 
   </div>
 
@@ -12,10 +17,18 @@
 <script>
 export default {
   name: 'LibraryAdminView',
+  props: {
+
+  },
   data: function () {
     return{
+
+
+      libraryName: sessionStorage.getItem('libraryName'),
       libraryId: this.$route.query.libraryId,
-      libraryName: sessionStorage.getItem('libraryName')
+      notification: sessionStorage.getItem('notification'),
+
+
 
 
     }
@@ -23,4 +36,3 @@ export default {
   }
 }
 </script>
-

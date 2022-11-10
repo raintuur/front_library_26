@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>
-        Keskraamatukogu ID:
+        Keskraamatukogu ID: {{libraryId}}
       </h1>
 
   </div>
@@ -13,7 +13,9 @@ export default {
   name: 'LibraryAdminView',
   data: function () {
     return{
-      adminId: sessionStorage.getItem('userId')
+      libraryId: this.$route.query.libraryId,
+      libraryName: sessionStorage.getItem('libraryName')
+
     }
 
   }

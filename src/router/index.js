@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LibrariesView from "@/views/LibrariesView";
+import LibraryAdminView from "@/views/LibraryAdminView";
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/by-city',
     name: 'librariesRoute',
     component: LibrariesView
+  },
+  {
+    path: '/admin/library',
+    name: 'adminLibraryRoute',
+    component: LibraryAdminView
   },
   {
     path: '/about',

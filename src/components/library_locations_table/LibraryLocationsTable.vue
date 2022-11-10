@@ -1,8 +1,11 @@
 <template>
-  <table class="table table-dark table-hover">
-    <LibraryLocationsTableHead/>
-    <LibraryLocationsTableBody :library-locations="libraryLocations"/>
-  </table>
+  <div>
+    <table class="table table-success table-bordered table-hover">
+      <LibraryLocationsTableHead/>
+      <LibraryLocationsTableBody :library-locations="libraryLocations"/>
+    </table>
+  </div>
+
 </template>
 <script>
 import LibraryLocationsTableHead from "@/components/library_locations_table/LibraryLocationsTableHead";

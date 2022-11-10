@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="errorMessage.length > 0 && errorMessage !== 'undefined'"
+    <div v-if="errorMessage !== 'undefined'"
          class="alert alert-danger" role="alert">
       {{errorMessage}}
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <router-link to="/by-city"><img alt="Vue logo" src="../assets/logo.png"></router-link>
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 
 export default {
   name: 'HomeView',
-  components: {
-  }
+  components: {}
 }
 </script>

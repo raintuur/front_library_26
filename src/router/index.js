@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LibrariesView from "@/views/LibrariesView";
 
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/by-city',
+    name: 'LibrariesRoute',
+    component: LibrariesView
   },
   {
     path: '/about',

@@ -1,5 +1,5 @@
 module.exports = {
     devServer: {
-        proxy: 'http://localhost:8080'
+        proxy: 'https://stoplight.io/mocks/kaupo-vaher/myproject/25244259'
     }
 }

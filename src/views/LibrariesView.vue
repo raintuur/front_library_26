@@ -10,6 +10,7 @@
       </div>
       <div class="col col-lg-9">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
+
       </div>
     </div>
 
@@ -29,7 +30,8 @@ export default {
         {
           cityName: '',
           libraryName: '',
-          libraryId: 0
+          libraryId: 0,
+          notification: '',
         }
       ]
     }
@@ -78,6 +80,8 @@ export default {
     },
 
   },
+
+
   beforeMount() {
     this.getAllLibraryLocationsInfo()
   }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LibrariesView from "@/views/LibrariesView";
-import AdminHomeView from "@/views/AdminHomeView";
+import LibraryAdminView from "@/views/LibraryAdminView";
 
 Vue.use(VueRouter)
 
@@ -18,9 +18,9 @@ const routes = [
     component: LibrariesView
   },
   {
-    path: '/admin-home',
-    name: 'adminHomeRoute',
-    component: AdminHomeView
+    path: '/admin/library',
+    name: 'libraryAdminRoute',
+    component: LibraryAdminView
   },
   {
     path: '/about',

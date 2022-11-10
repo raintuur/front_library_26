@@ -4,7 +4,8 @@
     <td>{{ location.cityName }}</td>
     <td>{{ location.libraryName }}</td>
     <td>
-      <button class="btn btn-outline-dark">Vaata{{location.libraryId}}</button>
+      <button class="btn btn-outline-dark"
+      v-on:click="this.$router.push({name: 'libraryAdminRoute'})" >Vaata{{location.libraryId}}</button>
     </td>
   </tr>
   </tbody>

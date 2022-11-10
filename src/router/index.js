@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LibraryView from "@/views/LibraryView";
+import LibrariesView from "@/views/LibrariesView";
+import LibraryAdminView from "@/views/LibraryAdminView";
 
 Vue.use(VueRouter)
 
@@ -12,9 +13,14 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/admin/library',
+    name: 'adminHomeRoute',
+    component: LibraryAdminView
+   },
+  {
     path: '/by-city',
-    name: 'Library',
-    component: LibraryView
+    name: 'librariesRoute',
+    component: LibrariesView
   },
   {
     path: '/about',

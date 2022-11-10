@@ -4,7 +4,7 @@
     <td>{{location.cityName}}</td>
     <td>{{location.libraryName}}</td>
     <td>
-      <button type="button" class="btn btn-light">Vaata {{location.libraryId}}</button>
+      <button type="button" class="btn btn-light" v-on:click="navigateToLibraryView">Vaata {{location.libraryId}}</button>
     </td>
   </tr>
   </tbody>
@@ -14,6 +14,11 @@ export default {
   name: 'LibraryLocationsTableBody',
   props: {
     libraryLocations: {}
+  },
+  methods: {
+    navigateToLibraryView: function () {
+      
+    }
   }
 }
 </script>

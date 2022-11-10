@@ -9,11 +9,13 @@
     </thead>
 
     <tbody>
-    <tr v-for="library in libraries" :key="libraries.libraryID">
-      <td>{{library.libraryCity}}</td>
+    <tr v-for="library in libraries" :key="libraries.libraryId">
+      <td>{{library.cityName}}</td>
       <td>{{library.libraryName}}</td>
       <td>
-        <button type="button" class="btn btn-outline-primary"> Vaata {{library.libraryID}}</button>
+        <button type="button" class="btn btn-outline-primary"
+                v-on:click="navigateToLibraryView(library.libraryName, library.libraryId)"
+        > Vaata {{library.libraryId}}</button>
       </td>
     </tr>
     </tbody>
@@ -25,6 +27,12 @@ export default {
   name: 'LibrariesTable',
   props: {
     libraries: {}
+  },
+  methods: {
+    navigateToLibraryView: function () {
+      this.$router.push({name:'libraryAdminRoute'})
+      
+    }
   }
 }
 </script>

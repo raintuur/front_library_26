@@ -3,6 +3,7 @@
       <h1>
         Keskraamatukogu ID:{{libraryId}}
       </h1>
+    <h2> <button type="button" class="btn btn-danger">Danger</button> </h2>
 
   </div>
 

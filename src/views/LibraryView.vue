@@ -7,7 +7,7 @@
             @buttonOtherPressed="getLibraryTableInfoByCityId"/>
       </div>
       <div class="col col-10">
-        <LibraryViewTable :library-locations="libraryLocations"/>
+        <LibraryViewTable :library-locations="libraryLocations" />
       </div>
     </div>
   </div>
@@ -27,13 +27,16 @@ export default {
         {
           cityName: '',
           libraryName: '',
-          libraryId: 0
+          libraryId: 0,
+          notification: ''
         }
       ]
     }
   },
 
   methods: {
+
+
 
     getLibraryTableInfo: function () {
       this.$http.get("/library/city-list/all")

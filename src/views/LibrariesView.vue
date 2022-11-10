@@ -8,7 +8,7 @@
             @clickAllCityButtonEvent="getAllLibraryLocationsInfo"
         />
       </div>
-      <div class="col col-lg-9">
+      <div class="col col-lg-6">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
 
       </div>

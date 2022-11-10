@@ -12,7 +12,7 @@
       <td>{{ libraryLocation.cityName }}</td>
       <td>{{ libraryLocation.libraryName }}</td>
       <td>
-        <button v-on:click="navigateToLibraryView(libraryLocations.indexOf(libraryLocation))"
+        <button v-on:click="navigateToLibraryView(libraryLocation)"
                 type="button" class="btn btn-sm btn-outline-success">Vaata
         </button>
       </td>
@@ -28,10 +28,10 @@ export default {
   },
 
   methods: {
-    navigateToLibraryView: function (value) {
-      this.$router.push({name: 'libraryAdminRoute', query: {libraryId: this.libraryLocations[value].libraryId}})
-      sessionStorage.setItem('libraryName', this.libraryLocations[value].libraryName)
-      sessionStorage.setItem('notification', this.libraryLocations[value].notification)
+    navigateToLibraryView: function (libraryLocation) {
+      this.$router.push({name: 'libraryAdminRoute', query: {libraryId: libraryLocation.libraryId}})
+      sessionStorage.setItem('libraryName', libraryLocation.libraryName)
+      sessionStorage.setItem('notification', libraryLocation.notification)
     },
   },
 

@@ -6,22 +6,30 @@
       </div>
       <div class="w-100"></div>
       <div class="col d-flex justify-content-center">
-        <div v-if="notification !== 'undefined'" class="row alert alert-danger" role="alert">
-          {{ notification }}
-        </div>
+        <ErrorAlert :message="message"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ErrorAlert from "@/components/LibraryViewComponents/ErrorAlert";
+
 export default {
   name: 'LibraryAdminView',
+  components: {ErrorAlert},
   data: function () {
     return {
+      message: '',
       libraryName: sessionStorage.getItem('libraryName'),
       notification: sessionStorage.getItem('notification'),
       libraryId: this.$route.query.libraryId
+    }
+  },
+
+  mounted() {
+    if (this.notification !== 'undefined') {
+      this.message = this.notification
     }
   }
 }

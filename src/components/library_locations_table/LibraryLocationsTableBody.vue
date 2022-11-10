@@ -4,7 +4,7 @@
     <td>{{location.cityName}}</td>
     <td>{{location.libraryName}}</td>
     <td>
-      <button v-on:click="" type="button" class="btn btn-warning">Vaata {{location.libraryId}}</button>
+      <button v-on:click="navigateToLibraryView(location.libraryName, location.libraryId)" type="button" class="btn btn-warning">Vaata {{location.libraryId}}</button>
     </td>
   </tr>
   </tbody>
@@ -14,6 +14,13 @@ export default {
   name: 'LibraryLocationsTableBody',
   props: {
     libraryLocations: {}
+  },
+
+  methods: {
+    navigateToLibraryView: function (libraryName, libraryId){
+      this.$router.push({path: '/admin/library', query: {libraryId}})
+      sessionStorage.setItem('libraryName', libraryName)
+    }
   }
 }
 </script>

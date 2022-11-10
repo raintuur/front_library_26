@@ -3,7 +3,7 @@
   <tr>
     <th scope="col">Linn</th>
     <th scope="col">Nimi</th>
-    <th scope="col">Button</th>
+    <th scope="col"></th>
   </tr>
   </thead>
 </template>

@@ -22,12 +22,12 @@ export default {
   components: {LibrariesTable, LibrariesButtons},
   data: function () {
     return {
-      preference: '',
       libraryInfo: [
         {
           cityName: '',
           libraryName: '',
-          libraryId: 0
+          libraryId: 0,
+          notification: ''
         }
       ]
     }
@@ -77,7 +77,6 @@ export default {
   },
   beforeMount() {
     this.getLibraryInfo()
-    // this.getLibraryLocationsInfoById(15)
   }
 }
 

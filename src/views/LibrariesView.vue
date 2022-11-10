@@ -32,7 +32,8 @@ export default {
         {
           cityName: '',
           libraryName: '',
-          libraryId: 0
+          libraryId: 0,
+          notification: ''
         }
       ]
     }

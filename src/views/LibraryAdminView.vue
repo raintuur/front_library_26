@@ -16,6 +16,7 @@ export default {
       libraryId: this.$route.query.libraryId,
       libraryName: sessionStorage.getItem('libraryName')
 
+
     }
 
   }

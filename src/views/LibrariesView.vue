@@ -1,88 +1,21 @@
 <template>
   <div>
 
-    <div class="row justify-content-center">
+  <div class="row">
 
-
-      <div class="col col-lg-3">
-        <CityButtons @clickCityButtonsEvent="getLibraryLocationsInfoById"
-                     @clickAllCityButtonsEvent="getAllLibraryLocationsInfo"/>
-      </div>
-      <div class="col col-lg-9">
-        <LibraryLocationsTable :library-locations="libraryLocations"/>
-      </div>
-
+    <div class="col-2">
+      <LibrariesButtons/>
     </div>
-
+    </div>
   </div>
 </template>
 
 <script>
-import CityButtons from "@/views/CityButtons";
-import LibraryLocationsTable from "@/components/library_locations_table/LibraryLocationsTable";
+import LibrariesButtons from "@/views/LibrariesButtons";
 
 export default {
   name: "LibrariesView",
-  components: {LibraryLocationsTable, CityButtons},
-  data: function () {
-    return {
-      libraryLocations: [
-        {
-          cityName: '',
-          libraryName: '',
-          libraryId: 0
-        }
-      ]
-    }
-  },
-  methods: {
-
-    getLibraryLocationsInfoById: function (cityId) {
-
-
-      let preference = ''
-      switch (cityId) {
-        case 15:
-          preference = 'code=200, example=200 - Tallinn'
-          break;
-        case 21:
-          preference = 'code=200, example=200 - Tartu'
-          break;
-        case 23:
-          preference = 'code=200, example=200 - Pärnu'
-          break;
-      }
-
-      this.$http.get("/library/city-list/by-city-id", {
-            params: {cityId: cityId},
-            headers: {
-              'Content-Type': 'application/json',
-              Prefer: preference
-
-            }
-          }
-      ).then(response => {
-        console.log(response.data)
-      }).catch(error => {
-        console.log(error)
-      });
-    },
-
-    getAllLibraryLocationsInfo: function () {
-      this.$http.get("/library/city-list/all")
-          .then(response => {
-            this.libraryLocations = response.data
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    },
-
-  },
-  beforeMount() {
-    this.getAllLibraryLocationsInfo()
-    this.getLibraryLocationsInfoById(23)
-  }
+  components: {LibrariesButtons}
 }
 </script>
 

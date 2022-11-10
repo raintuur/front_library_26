@@ -6,6 +6,7 @@ import LibrariesView from "@/views/LibrariesView";
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
     name: 'home',
@@ -13,7 +14,7 @@ const routes = [
   },
   {
     path: '/by-city',
-    name: 'librariesRoute',
+    name: 'LibrariesRoute',
     component: LibrariesView
   },
   {

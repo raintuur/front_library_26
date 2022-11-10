@@ -4,21 +4,23 @@
     <div>
       <h1>{{ libraryName }} id: {{ libraryId }}</h1>
     </div>
-    <div v-if="errorMessage.length > 0 && errorMessage != 'undefined'" class="alert alert-danger" role="alert">
-      {{errorMessage}}
-    </div>
+    <AlertMessage :error-message="errorMessage"/>
   </div>
 
 </template>
 
 <script>
+import AlertMessage from "@/views/AlertMessage";
+
 export default {
   name: "AdminHomeView",
+  components: {AlertMessage},
   data: function () {
     return {
-      libraryId: this.$route.query.libraryId,
+
       libraryName: sessionStorage.getItem('libraryName'),
-      errorMessage: sessionStorage.getItem('errorMessage')
+      errorMessage: sessionStorage.getItem('errorMessage'),
+      libraryId: this.$route.query.libraryId
     }
   }
 }

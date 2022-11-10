@@ -7,7 +7,7 @@
             @buttonOtherPressed="getLibraryTableInfoByCityId"/>
       </div>
       <div class="col col-10">
-        <LibraryViewTable :library-locations="libraryLocations" />
+        <LibraryViewTable :library-locations="libraryLocations"/>
       </div>
     </div>
   </div>
@@ -36,8 +36,6 @@ export default {
 
   methods: {
 
-
-
     getLibraryTableInfo: function () {
       this.$http.get("/library/city-list/all")
           .then(response => {
@@ -50,25 +48,25 @@ export default {
     },
 
     getLibraryTableInfoByCityId: function (selectedCityId) {
-
-        let preference = ''
-        switch (selectedCityId) {
-          case 15:
-            preference = 'code=200, example=200-Tallinn'
-            break
+      let preference = ''
+      switch (selectedCityId) {
+        case 15:
+          preference = 'code=200, example=200-Tallinn'
+          break
         case 21:
           preference = 'code=200, example=200-Tartu'
-              break
+          break
         case 23:
-          preference  = 'code=200, example=200-Pärnu'
-              break
+          preference = 'code=200, example=200-Pärnu'
+          break
       }
 
       this.$http.get("/library/city-list/by-city-id", {
-        params: {cityId: selectedCityId},
-        headers: {
-          'Content-Type': 'application/json',
-          Prefer: preference}
+            params: {cityId: selectedCityId},
+            headers: {
+              'Content-Type': 'application/json',
+              Prefer: preference
+            }
           }
       ).then(response => {
         this.libraryLocations = response.data

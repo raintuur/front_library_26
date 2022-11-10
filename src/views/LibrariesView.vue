@@ -8,7 +8,7 @@
             @clickAllCityButtonEvent="getAllLibraryLocationsInfo"
         />
       </div>
-      <div class="col col-lg-9">
+      <div class="col col-lg-3">
         <LibraryLocationsTable :library-locations="libraryLocations"/>
       </div>
     </div>
@@ -29,7 +29,8 @@ export default {
         {
           cityName: '',
           libraryName: '',
-          libraryId: 0
+          libraryId: 0,
+          notification: ''
         }
       ]
     }
@@ -57,7 +58,6 @@ export default {
             headers: {
               'Content-Type': 'application/json',
               Prefer: preference
-
             }
           }
       ).then(response => {

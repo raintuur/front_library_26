@@ -1,0 +1,23 @@
+[
+  {
+    "cityName": "Tallinn",
+    "libraryName": "Keskraamatukogu",
+    "libraryId": 3,
+    "notification": "Raamatukogu on Eesti Vabariigi aastapäeval kinni"
+  },
+  {
+    "cityName": "Tallinn",
+    "libraryName": "Pääsküla Raamatukogu",
+    "libraryId": 5
+  },
+  {
+    "cityName": "Tartu",
+    "libraryName": "Tammelinna Raamatukogu",
+    "libraryId": 7
+  },
+  {
+    "cityName": "Pärnu",
+    "libraryName": "Ranna Raamatukogu",
+    "libraryId": 9
+  }
+]

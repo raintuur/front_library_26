@@ -4,7 +4,10 @@
     <div class="row">
 
       <div class="col-2">
-        <LibrariesButtons/>
+        <LibrariesButtons
+            @clickCityButtonEvent="getAllLibrariesLocationsInfoById"
+            @clickAllCityButtonEvent="getAllLibrariesLocationInfo"
+        />
       </div>
 
       <div class="col-8">
@@ -41,7 +44,7 @@ export default {
   },
   methods: {
 
-    getAllLibrariesLocationsInfoById: function () {
+    getAllLibrariesLocationsInfoById: function (cityId) {
 
       let preference = ''
       switch (cityId) {
@@ -58,7 +61,7 @@ export default {
 
 
       this.$http.get("/library/city-list/by-city-id", {
-            params: {cityId: '15'},
+            params: {cityId: cityId},
             headers: {
               'Content-Type': 'application/json',
               Prefer: preference
@@ -66,7 +69,7 @@ export default {
             }
           }
       ).then(response => {
-        console.log(response.data)
+        this.libraryLocations = response.data
       }).catch(error => {
         console.log(error)
       });

@@ -44,31 +44,28 @@ export default {
     getAllLibrariesLocationsInfoById: function () {
 
       let preference = ''
-      {
-        switch (cityId) {
-          case 15:
-            preference = 'code=200, example=200 - Tallinn'
-            break;
-          case 21:
-            preference = 'code=200, example=200 - Tartu'
-            break;
-          case 23:
-            preference = 'code=200, example=200 - Pärnu'
-            break;
-        }
+      switch (cityId) {
+        case 15:
+          preference = 'code=200, example=200 - Tallinn'
+          break;
+        case 21:
+          preference = 'code=200, example=200 - Tartu'
+          break;
+        case 23:
+          preference = 'code=200, example=200 - Pärnu'
+          break;
       }
 
 
-        this.$http.get("/library/city-list/by-city-id", {
-          params: {cityId: '15'},
-          headers: {
-            'Content-Type': 'application/json',
-            Prefer: preference
+      this.$http.get("/library/city-list/by-city-id", {
+            params: {cityId: '15'},
+            headers: {
+              'Content-Type': 'application/json',
+              Prefer: preference
 
-        }
-      }
-    ).
-      then(response => {
+            }
+          }
+      ).then(response => {
         console.log(response.data)
       }).catch(error => {
         console.log(error)
@@ -88,7 +85,7 @@ export default {
   },
   beforeMount() {
     this.getAllLibrariesLocationInfo()
-    this.getAllLibrariesLocationsInfoById()
+
   }
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
   <tbody>
-  <tr v-for="location in librariesInfo" :key="location.libraryId">
-    <td>{{location.cityName}}</td>
-    <td>{{location.libraryName}}</td>
+  <tr v-for="locationInfo in librariesInfo" :key="locationInfo.libraryId">
+    <td>{{locationInfo.cityName}}</td>
+    <td>{{locationInfo.libraryName}}</td>
     <td>
-      <button type="button" class="btn btn-warning">Vali {{location.libraryId}}</button>
+      <button v-on:click="navigateToLibraryView(locationInfo)" type="button" class="btn btn-warning">Vali {{locationInfo.libraryId}}</button>
     </td>
   </tr>
   </tbody>
@@ -14,6 +14,18 @@ export default {
   name: 'LibrariesTableBody',
   props: {
     librariesInfo: {}
+  },
+  methods: {
+    navigateToLibraryView: function (locationInfo) {
+      sessionStorage.setItem('notification',locationInfo.notification)
+      sessionStorage.setItem('libraryName',locationInfo.libraryName)
+
+      this.$router.push({
+        name: 'LibraryAdminRoute', query:{
+          libraryId: locationInfo.libraryId
+        }
+      })
+    }
   }
 }
 </script>

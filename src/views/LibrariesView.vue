@@ -4,7 +4,7 @@
     <div class="row">
 
       <div class="col-2">
-        <LibrariesButtons
+        <CityButtons
             @clickCityButtonEvent="getAllLibrariesLocationsInfoById"
             @clickAllCityButtonEvent="getAllLibrariesLocationInfo"
         />
@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import LibrariesButtons from "@/components/library_components/LibrariesButtons";
+import CityButtons from "@/views/CityButtons";
 import LibrariesTableHead from "@/components/library_locations_table/LibrariesTableHead";
 import LibrariesTableBody from "@/components/library_locations_table/LibrariesTableBody";
 
 export default {
   name: "LibrariesView",
-  components: {LibrariesTableBody, LibrariesTableHead, LibrariesButtons},
+  components: {LibrariesTableBody, LibrariesTableHead, CityButtons},
   data: function () {
     return {
       librariesInfo:
@@ -69,7 +69,7 @@ export default {
             }
           }
       ).then(response => {
-        this.libraryLocations = response.data
+        this.librariesInfo = response.data
       }).catch(error => {
         console.log(error)
       });

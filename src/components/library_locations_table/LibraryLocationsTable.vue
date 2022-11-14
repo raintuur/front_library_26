@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-dark table-hover">
+  <table class="table table-success table-striped">
     <LibraryLocationsTableHead/>
     <LibraryLocationsTableBody :library-locations="libraryLocations"/>
   </table>
